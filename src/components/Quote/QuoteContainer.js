@@ -1,19 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { fetchTexts } from '../../actions/textActions';
+import { fetchQuotes } from '../../actions/quoteActions';
 
-class TextContainer extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      text: '',
-    };
-  }
-
+class QuoteContainer extends React.Component {
   componentDidMount() {
-    this.props.fetchTexts('./data/texts.json');
+    this.props.fetchQuotes('./data/quotes.json');
   }
 
   render() {
@@ -30,10 +22,10 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  fetchTexts: (path) => dispatch(fetchTexts(path)),
+  fetchQuotes: (path) => dispatch(fetchQuotes(path)),
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(TextContainer);
+)(QuoteContainer);

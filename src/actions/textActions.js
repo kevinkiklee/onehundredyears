@@ -1,13 +1,13 @@
 import * as fetchUtil from '../utils/fetchUtil';
 
-export const RECEIVE_TEXT = 'RECEIVE_TEXT';
+export const RECEIVE_TEXTS = 'RECEIVE_TEXTS';
 
-export const receiveText = (text) => ({
-  type: RECEIVE_TEXT,
-  text
+export const receiveTexts = (texts) => ({
+  type: RECEIVE_TEXTS,
+  texts
 });
 
-export const fetchText = (url) => dispatch => {
+export const fetchTexts = (url) => dispatch => {
   return fetchUtil.fetchJSON(url)
-    .then((text) => dispatch(receiveText(text)));
+    .then((texts) => dispatch(receiveTexts(texts)));
 };
