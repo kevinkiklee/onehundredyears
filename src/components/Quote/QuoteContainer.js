@@ -11,14 +11,13 @@ class QuoteContainer extends React.Component {
   render() {
     return (
       <div>
-        Test
+        QuoteContainer
       </div>
     );
   }
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  profile: state.profile,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

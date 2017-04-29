@@ -19,14 +19,13 @@ class TextContainer extends React.Component {
   render() {
     return (
       <div>
-        Test
+        TextContainer
       </div>
     );
   }
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  profile: state.profile,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
