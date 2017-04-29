@@ -1,7 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 
 import { fetchQuotes } from '../../actions/quoteActions';
+
+const QuoteWrapper = styled.div`
+  font-size: 16px;
+`;
 
 class QuoteContainer extends React.Component {
   componentDidMount() {
@@ -10,9 +15,9 @@ class QuoteContainer extends React.Component {
 
   render() {
     return (
-      <div>
+      <QuoteWrapper>
         QuoteContainer
-      </div>
+      </QuoteWrapper>
     );
   }
 }

@@ -1,7 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 
 import { fetchTexts } from '../../actions/textActions';
+
+const TextWrapper = styled.div`
+  font-size: 16px;
+`;
 
 class TextContainer extends React.Component {
   constructor(props) {
@@ -18,9 +23,9 @@ class TextContainer extends React.Component {
 
   render() {
     return (
-      <div>
+      <TextWrapper>
         TextContainer
-      </div>
+      </TextWrapper>
     );
   }
 }
