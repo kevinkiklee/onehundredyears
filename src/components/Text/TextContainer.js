@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { fetchText } from '../../actions/textActions';
 
-class ProfileContainer extends React.Component {
+class TextContainer extends React.Component {
   constructor(props) {
     super(props);
 
@@ -13,7 +13,7 @@ class ProfileContainer extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchText();
+    this.props.fetchText('./data/texts.json');
   }
 
   render() {
@@ -36,4 +36,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ProfileContainer);
+)(TextContainer);
