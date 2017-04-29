@@ -9,20 +9,43 @@ const QuoteWrapper = styled.div`
 `;
 
 class QuoteContainer extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      quote: '',
+    };
+  }
+
   componentDidMount() {
     this.props.fetchQuotes('./data/quotes.json');
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (this.props.quotes !== newProps.quotes) {
+      this.setRandomQuote(newProps.quotes);
+    }
+  }
+
+  setRandomQuote(quotes) {
+    const min = 0;
+    const max = quotes.length;
+    const index = Math.floor(Math.random() * max);
+
+    this.setState({ quote: quotes[index] });
   }
 
   render() {
     return (
       <QuoteWrapper>
-        QuoteContainer
+        { this.state.quote }
       </QuoteWrapper>
     );
   }
 }
 
 const mapStateToProps = (state, ownProps) => ({
+  quotes: state.data.quotes,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
