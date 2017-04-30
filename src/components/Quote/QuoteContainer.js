@@ -38,7 +38,6 @@ class QuoteContainer extends React.Component {
   }
 
   setRandomQuote(quotes) {
-    const min = 0;
     const max = quotes.length;
     const index = Math.floor(Math.random() * max);
 
