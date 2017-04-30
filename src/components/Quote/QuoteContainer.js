@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
+import Quote from './Quote';
+
 import { fetchQuotes } from '../../actions/quoteActions';
 
 const QuoteWrapper = styled.div`
@@ -51,7 +53,7 @@ class QuoteContainer extends React.Component {
   render() {
     return (
       <QuoteWrapper>
-        { this.state.quote }
+        <Quote quote={this.state.quote} />
       </QuoteWrapper>
     );
   }
