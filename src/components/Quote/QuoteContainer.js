@@ -10,6 +10,7 @@ class QuoteContainer extends React.Component {
 
     this.state = {
       quote: '',
+      show: true,
       timer: null,
     };
 
@@ -17,7 +18,7 @@ class QuoteContainer extends React.Component {
   }
 
   componentDidMount() {
-    const timer = setInterval(this.tick, 3000);
+    const timer = setInterval(this.tick, 2000);
     this.props.fetchQuotes('./data/quotes.json');
 
     this.setState({ timer });
@@ -41,13 +42,21 @@ class QuoteContainer extends React.Component {
   }
 
   tick() {
+    this.setState({ show: false });
     this.setRandomQuote(this.props.quotes);
+    this.setState({ show: true });
   }
 
   render() {
-    return (
-      <Quote quote={this.state.quote} />
-    );
+    if (this.state.show) {
+      return (
+        <Quote quote={this.state.quote} />
+      );
+    } else {
+      return (
+        <div />
+      );
+    }
   }
 }
 
