@@ -14,11 +14,17 @@ class QuoteContainer extends React.Component {
 
     this.state = {
       quote: '',
+      timer: null,
     };
+
+    this.tick = this.tick.bind(this);
   }
 
   componentDidMount() {
+    const timer = setInterval(this.tick, 3000);
     this.props.fetchQuotes('./data/quotes.json');
+
+    this.setState({ timer });
   }
 
   componentWillReceiveProps(newProps) {
@@ -27,12 +33,20 @@ class QuoteContainer extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    this.clearInterval(this.state.timer);
+  }
+
   setRandomQuote(quotes) {
     const min = 0;
     const max = quotes.length;
     const index = Math.floor(Math.random() * max);
 
     this.setState({ quote: quotes[index] });
+  }
+
+  tick() {
+    this.setRandomQuote(this.props.quotes);
   }
 
   render() {
